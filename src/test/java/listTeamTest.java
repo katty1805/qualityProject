@@ -21,30 +21,38 @@ public class listTeamTest {
     public void setUp() throws Exception {
         driver = new HtmlUnitDriver();
         baseUrl = "http://softwareteam.azurewebsites.net/";
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        //baseUrl="http://localhost:8080/team";
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
     @Test
-    public void testPrueba11() throws Exception {
+    public void testHomeInfo() throws Exception {
         driver.get(baseUrl + "/");
         // ERROR: Caught exception [ERROR: Unsupported command [selectFrame | frame | ]]
         try {
-            assertEquals("Counter team", driver.findElement(By.cssSelector("font")).getText());
+            driver.switchTo().defaultContent();
+            driver.switchTo().frame("teamFrameID");
+
+            WebElement teamName = driver.findElement(By.id("teamPID"));
+            assertEquals("Counter Team", teamName.getText());
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
         try {
-            assertEquals("Christian Andrés Bustamante Crespo", driver.findElement(By.xpath("//p[2]/b/font")).getText());
+            WebElement teamMember1 = driver.findElement(By.id("mangoChupadoID"));
+            assertEquals("Christian Andr&eacutes Bustamante Crespo", teamMember1.getText());
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
         try {
-            assertEquals("Daniela Katherine Flores Taipe", driver.findElement(By.xpath("//p[3]/b/font")).getText());
+            WebElement teamMember2 = driver.findElement(By.id("ninaScochID"));
+            assertEquals("Daniela Katherine Flores Taipe", teamMember2.getText());
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
         try {
-            assertEquals("Daniel Augusto Vera Yanes", driver.findElement(By.xpath("//p[4]/b/font")).getText());
+            WebElement teamMember3 = driver.findElement(By.id("elunicoeinmejorableID"));
+            assertEquals("Daniel Augusto Vera Yanes", teamMember3.getText());
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
