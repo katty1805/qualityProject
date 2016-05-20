@@ -21,7 +21,7 @@ public class listTeamTest {
     public void setUp() throws Exception {
         driver = new HtmlUnitDriver();
         baseUrl = "http://softwareteam.azurewebsites.net/";
-        //baseUrl="http://localhost:8080/team";
+        //        baseUrl="http: //localhost:8080/team";
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
