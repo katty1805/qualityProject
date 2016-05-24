@@ -20,11 +20,24 @@ public class listTeamTest {
     @Before
     public void setUp() throws Exception {
         driver = new HtmlUnitDriver();
-        baseUrl = "http://softwareteam.azurewebsites.net/";
-        //        baseUrl="http: //localhost:8080/team";
+        //baseUrl = "http://softwareteam.azurewebsites.net/";
+        //baseUrl="http: //localhost:8080/team";
+
+        // TODO: cambiar esto!!!!!
+        baseUrl= useRemote() ? "http://stagingsoftwareteam.azurewebsites.net" : "http://localhost:8080/team";
+        System.out.println(baseUrl);
+
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
+    public boolean useRemote() {
+        String remote;
+        remote = System.getProperty("isRemote");
+        if (remote == null)
+            return false;
+        else
+            return Boolean.parseBoolean(remote);
+    }
     @Test
     public void testHomeInfo() throws Exception {
         driver.get(baseUrl + "/");
