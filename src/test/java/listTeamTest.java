@@ -59,7 +59,7 @@ public class listTeamTest {
         }
         try {
             WebElement teamMember2 = driver.findElement(By.id("ninaScochID"));
-            assertEquals("Daniela Katherine Flores Taipe", teamMember2.getText());
+            assertEquals("Daniela Katherine Flores Taipe !!", teamMember2.getText());
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
