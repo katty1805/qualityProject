@@ -1,7 +1,6 @@
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
 
-import static com.sun.tools.doclint.Entity.prime;
 import static org.junit.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
