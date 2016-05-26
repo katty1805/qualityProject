@@ -20,9 +20,6 @@ public class listTeamTest {
     @Before
     public void setUp() throws Exception {
         driver = new HtmlUnitDriver();
-        //baseUrl = "http://softwareteam.azurewebsites.net/";
-        //baseUrl="http: //localhost:8080/team";
-
         baseUrl= useRemote();
         System.out.println(baseUrl);
 
@@ -58,7 +55,7 @@ public class listTeamTest {
         }
         try {
             WebElement teamMember2 = driver.findElement(By.id("ninaScochID"));
-            assertEquals("Daniela Katherine Flores Taipe !!", teamMember2.getText());
+            assertEquals("Daniela Katherine Flores Taipe", teamMember2.getText());
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
