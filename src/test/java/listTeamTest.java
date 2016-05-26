@@ -64,7 +64,7 @@ public class listTeamTest {
         }
         try {
             WebElement teamMember3 = driver.findElement(By.id("elunicoeinmejorableID"));
-            assertEquals("Daniel Augusto Vera Yanes", teamMember3.getText());
+            assertEquals("Daniel Augusto Vera Yanez", teamMember3.getText());
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
