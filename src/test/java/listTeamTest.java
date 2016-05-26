@@ -23,20 +23,19 @@ public class listTeamTest {
         //baseUrl = "http://softwareteam.azurewebsites.net/";
         //baseUrl="http: //localhost:8080/team";
 
-        // TODO: cambiar esto!!!!!
-        baseUrl= useRemote() ? "http://stagingsoftwareteam.azurewebsites.net" : "http://localhost:8080/team";
+        baseUrl= useRemote();
         System.out.println(baseUrl);
 
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
-    public boolean useRemote() {
+    public String useRemote() {
         String remote;
-        remote = System.getProperty("isRemote");
+        remote = System.getProperty("url");
         if (remote == null)
-            return false;
+            return "http://localhost:8080/team";
         else
-            return Boolean.parseBoolean(remote);
+            return remote;
     }
     @Test
     public void testHomeInfo() throws Exception {
