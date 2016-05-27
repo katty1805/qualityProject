@@ -8,11 +8,9 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
+import static org.junit.Assert.*;
 /**
- * Created by danielvera on 5/26/16.
+ * Created by Christian Bustamante on 5/26/16.
  */
 public class teamMember1Test {
 
@@ -54,6 +52,19 @@ public class teamMember1Test {
 
             WebElement memberTitle = driver.findElement(By.id("memberTitle"));
             assertEquals(teamMemberName, memberTitle.getText());
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+    }
+
+    @Test
+    public void testMemberPhoto() throws Exception {
+        driver.get(baseUrl + "/");
+        changeDriverToFrameWithID("teamFrameID");
+        try {
+            driver.findElement(By.partialLinkText(teamMemberName)).click();
+            assertEquals(true, driver.findElement(By.cssSelector(".photo-container img")) != null);
+            assertEquals(baseUrl + "/images/imagesteam/andres.jpg", driver.findElement(By.cssSelector(".photo-container img")).getAttribute("src"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
