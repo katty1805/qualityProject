@@ -52,6 +52,19 @@ public class teamMember3Test {
         }
     }
 
+    @Test
+    public void testMemberPhoto() throws Exception {
+        driver.get(baseUrl + "/");
+        changeDriverToFrameWithID("teamFrameID");
+        try {
+            driver.findElement(By.partialLinkText(teamMemberName)).click();
+            assertEquals(true, driver.findElement(By.cssSelector(".photo-container img")) != null);
+            assertEquals(baseUrl + "/images/imagesteam/dani.jpg", driver.findElement(By.cssSelector(".photo-container img")).getAttribute("src"));
+        } catch (Error e) {
+            verificationErrors.append(e.toString());
+        }
+    }
+
     @After
     public void tearDown() throws Exception {
         driver.quit();
