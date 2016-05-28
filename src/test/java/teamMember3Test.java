@@ -59,7 +59,7 @@ public class teamMember3Test {
         try {
             driver.findElement(By.partialLinkText(teamMemberName)).click();
             assertEquals(true, driver.findElement(By.cssSelector(".photo-container img")) != null);
-            assertEquals(baseUrl + "/images/imagesteam/dani.jpg", driver.findElement(By.cssSelector(".photo-container img")).getAttribute("src"));
+            assertEquals(baseUrl + "/images/danny.jpg", driver.findElement(By.cssSelector(".photo-container img")).getAttribute("src"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }

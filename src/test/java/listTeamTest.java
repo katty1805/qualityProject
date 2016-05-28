@@ -42,26 +42,26 @@ public class listTeamTest {
             driver.switchTo().defaultContent();
             driver.switchTo().frame("teamFrameID");
 
-            WebElement teamName = driver.findElement(By.id("teamPID"));
-            assertEquals("Counter Team", teamName.getText());
+            WebElement teamName = driver.findElement(By.id("hgroup"));
+            assertEquals("COUNTER QUALITY TEAM", teamName.getText());
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
         try {
-            WebElement teamMember1 = driver.findElement(By.id("mangoChupadoID"));
-            assertEquals("Christian Andr&eacutes Bustamante Crespo", teamMember1.getText());
+            WebElement teamMember1 = driver.findElement(By.id("christian_member1"));
+            assertEquals("Christian Bustamante", teamMember1.getText());
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
         try {
-            WebElement teamMember2 = driver.findElement(By.id("ninaScochID"));
-            assertEquals("Daniela Katherine Flores Taipe", teamMember2.getText());
+            WebElement teamMember2 = driver.findElement(By.id("katty_member2"));
+            assertEquals("Daniela Flores", teamMember2.getText());
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
         try {
-            WebElement teamMember3 = driver.findElement(By.id("elunicoeinmejorableID"));
-            assertEquals("Daniel Augusto Vera Yanez", teamMember3.getText());
+            WebElement teamMember3 = driver.findElement(By.id("dany_member3"));
+            assertEquals("Daniel Vera", teamMember3.getText());
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
