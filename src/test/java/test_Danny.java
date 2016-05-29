@@ -1,25 +1,20 @@
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-
 import java.util.concurrent.TimeUnit;
+import org.junit.*;
 
 import static org.junit.Assert.*;
-/**
- * Created by Christian Bustamante on 5/26/16.
- */
-public class teamMember1Test {
+import org.openqa.selenium.*;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
+/**
+ * Created by danielvera on 5/26/16.
+ */
+public class test_Danny {
     private WebDriver driver;
     private String baseUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
 
-    private String teamMemberName = "Christian Andr&eacutes Bustamante Crespo";
+    private String teamMemberName = "Daniel Augusto Vera Yanez";
 
     @Before
     public void setUp() throws Exception {
@@ -45,7 +40,7 @@ public class teamMember1Test {
     @Test
     public void testMemberTitleName() throws Exception {
         driver.get(baseUrl + "/");
-        changeDriverToFrameWithID("teamFrameID");
+        changeDriverToFrameWithID("Danny_homepage");
         try {
             WebElement memberLink = driver.findElement(By.partialLinkText(teamMemberName));
             memberLink.click();
@@ -60,11 +55,11 @@ public class teamMember1Test {
     @Test
     public void testMemberPhoto() throws Exception {
         driver.get(baseUrl + "/");
-        changeDriverToFrameWithID("teamFrameID");
+        changeDriverToFrameWithID("Danny_homepage");
         try {
             driver.findElement(By.partialLinkText(teamMemberName)).click();
             assertEquals(true, driver.findElement(By.cssSelector(".photo-container img")) != null);
-            assertEquals(baseUrl + "/images/imagesteam/andres.jpg", driver.findElement(By.cssSelector(".photo-container img")).getAttribute("src"));
+            assertEquals(baseUrl + "/images/danny.jpg", driver.findElement(By.cssSelector(".photo-container img")).getAttribute("src"));
         } catch (Error e) {
             verificationErrors.append(e.toString());
         }
