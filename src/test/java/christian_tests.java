@@ -3,6 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.support.ui.SystemClock;
 
 import java.util.concurrent.TimeUnit;
 
@@ -48,9 +49,15 @@ public class christian_tests {
         assertEquals("COUNTER QUALITY TEAM", driver.findElement(By.cssSelector("h1")).getText());
         assertEquals("Software Quality Testers", driver.findElement(By.cssSelector("h2")).getText());
         assertTrue(isElementPresent(By.cssSelector("img")));
-
         assertEquals("ABOUT ME", driver.findElement(By.cssSelector("figcaption > h2")).getText());
-        assertEquals("ABOUT ME \n Christian Andrés Bustamante Crespo \n Informatic Enginnering at ESPE \n 29 years old Current Master degree student at IPL \n Quito - Ecuador", driver.findElement(By.cssSelector("figcaption")).getText());
+
+        WebElement basicInfo = driver.findElement(By.id("chochoInfoID"));
+        assertTrue(basicInfo.getText().contains("ABOUT ME"));
+        assertTrue(basicInfo.getText().contains("Christian Andr&eacutes Bustamante Crespo"));
+        assertTrue(basicInfo.getText().contains("Informatic Enginnering at ESPE"));
+        assertTrue(basicInfo.getText().contains("29 years old Current Master degree student at IPL"));
+        assertTrue(basicInfo.getText().contains("Quito - Ecuador"));
+
         assertTrue(isElementPresent(By.cssSelector("#Christian_homepage > article.one_third > figure > img")));
         assertEquals("SKILLS", driver.findElement(By.cssSelector("#Christian_homepage > article.one_third.lastbox > figcaption > h2")).getText());
         assertEquals("PROGRAMMING LANGUAGES: C, C++, C#, Java, Objective-C, Swift,javascript, Phyton, PHP, HTML", driver.findElement(By.cssSelector("p")).getText());
