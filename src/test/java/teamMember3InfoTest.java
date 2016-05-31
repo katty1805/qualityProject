@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -40,7 +41,8 @@ public class teamMember3InfoTest {
     }
 
     @Test
-    public void member3HeaderTest() throws Exception {
+    public void member3HeaderTest() throws Exception
+    {
         driver.get(baseUrl);
         driver.findElement(By.id("linkTeam3Info")).click();
         assertEquals("Daniel Vera", driver.getTitle());
@@ -51,27 +53,50 @@ public class teamMember3InfoTest {
     }
 
     @Test
-    public void member3InfoTest() throws Exception
+    public void aboutTest() throws Exception
     {
         driver.get(baseUrl+"dani.html");
-        assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[1]//img")));
-        assertEquals(baseUrl+"images/danny.jpg", driver.findElement(By.xpath("//section[@id='services']/article[1]//img")).getAttribute("src"));
-        assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[2]//h2")));
-        assertEquals("ABOUT ME", driver.findElement(By.xpath("//section[@id='services']/article[2]//h2")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[2]//p[1]")));
-        assertEquals("Daniel Augusto Vera Yanez", driver.findElement(By.xpath("//section[@id='services']/article[2]//p[1]")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[2]//p[2]")));
-        assertEquals("System Engineer", driver.findElement(By.xpath("//section[@id='services']/article[2]//p[2]")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[2]//p[3]")));
-        assertEquals("iOS Developer", driver.findElement(By.xpath("//section[@id='services']/article[2]//p[3]")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[2]//p[4]")));
-        assertEquals("Universidad de las Fuerzas Armadas - ESPE", driver.findElement(By.xpath("//section[@id='services']/article[2]//p[4]")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[2]//p[5]")));
-        assertEquals("Quito - Ecuador", driver.findElement(By.xpath("//section[@id='services']/article[2]//p[5]")).getText());
+
+        assertTrue(isElementPresent(By.id("teamPhoto")));
+        assertEquals(baseUrl+"images/danny.jpg", driver.findElement(By.id("teamPhoto")).getAttribute("src"));
+
+        assertTrue(isElementPresent(By.id("aboutID")));
+        assertEquals("ABOUT ME", driver.findElement(By.id("aboutID")).getText());
+
+        assertTrue(isElementPresent(By.id("nameID")));
+        assertEquals("Daniel Augusto Vera Yanez", driver.findElement(By.id("nameID")).getText());
+
+        assertTrue(isElementPresent(By.id("careerID")));
+        assertEquals("System Engineer", driver.findElement(By.id("careerID")).getText());
+
+        assertTrue(isElementPresent(By.id("deveID")));
+        assertEquals("iOS Developer", driver.findElement(By.id("deveID")).getText());
+
+        assertTrue(isElementPresent(By.id("uniID")));
+        assertEquals("Universidad de las Fuerzas Armadas - ESPE", driver.findElement(By.id("uniID")).getText());
+
+        assertTrue(isElementPresent(By.id("placeID")));
+        assertEquals("Quito - Ecuador", driver.findElement(By.id("placeID")).getText());
+
         assertTrue(isElementPresent(By.cssSelector("#copyright > p")));
         assertEquals("Copyright © 2016 - All Rights Reserved - Counter Quality Team", driver.findElement(By.cssSelector("#copyright > p")).getText());
     }
 
+    @Test
+    public void summaryTest() throws Exception
+    {
+        driver.get(baseUrl+"dani.html");
+        WebElement aboutSection = driver.findElement(By.id("about_section"));
+        WebElement summaryCaption = aboutSection.findElement(By.id("summary"));
+
+        assertEquals("SUMMARY", summaryCaption.findElement(By.id("summaryTitle")).getText());
+        assertEquals("SUMMARY", summaryCaption.findElement(By.id("summaryTitle")).getText());
+
+        WebElement summaryId = summaryCaption.findElement(By.id("summaryInfo"));
+        assertTrue(summaryId.getText().contains("System and computer engineer with 4 years"));
+        assertTrue(summaryId.getText().contains("Strong problem- solving skills, quick learner and always"));
+        assertTrue(summaryId.getText().contains("latest technologies and best practices."));
+    }
 
     @After
     public void tearDown() throws Exception {
