@@ -38,7 +38,7 @@ public class christian_tests {
 
     @Test
     public void testCompleteChristianProfile() throws Exception {
-        driver.get(baseUrl + "/qualityProject/src/main/index.html?_ijt=v33fglgng8qbedt255fen87g8g");
+        driver.get(baseUrl);
         assertEquals("COUNTER QUALITY TEAM", driver.findElement(By.cssSelector("h1")).getText());
         assertEquals("Software Quality Testers", driver.findElement(By.cssSelector("h2")).getText());
         assertTrue(isElementPresent(By.cssSelector("figure > img")));
@@ -49,7 +49,7 @@ public class christian_tests {
         assertEquals("Software Quality Testers", driver.findElement(By.cssSelector("h2")).getText());
         assertTrue(isElementPresent(By.cssSelector("img")));
         assertEquals("ABOUT ME", driver.findElement(By.cssSelector("figcaption > h2")).getText());
-        assertEquals("Christian Andrés Bustamante Crespo", driver.findElement(By.cssSelector("p")).getText());
+        assertEquals("Christian Andr&eacutes Bustamante Crespo", driver.findElement(By.cssSelector("p")).getText());
         assertEquals("Informatic Enginnering at ESPE", driver.findElement(By.xpath("//section[@id='services']/article[2]/figcaption/p[2]")).getText());
         assertEquals("29 years old", driver.findElement(By.xpath("//section[@id='services']/article[2]/figcaption/p[3]")).getText());
         assertEquals("Game development specialist", driver.findElement(By.xpath("//section[@id='services']/article[2]/figcaption/p[4]")).getText());
