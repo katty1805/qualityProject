@@ -48,12 +48,13 @@ public class christian_tests {
         assertEquals("COUNTER QUALITY TEAM", driver.findElement(By.cssSelector("h1")).getText());
         assertEquals("Software Quality Testers", driver.findElement(By.cssSelector("h2")).getText());
         assertTrue(isElementPresent(By.cssSelector("img")));
+
         assertEquals("ABOUT ME", driver.findElement(By.cssSelector("figcaption > h2")).getText());
-        assertEquals("Christian Andr&eacutes Bustamante Crespo", driver.findElement(By.cssSelector("p")).getText());
-        assertEquals("Informatic Enginnering at ESPE", driver.findElement(By.xpath("//section[@id='services']/article[2]/figcaption/p[2]")).getText());
-        assertEquals("29 years old", driver.findElement(By.xpath("//section[@id='services']/article[2]/figcaption/p[3]")).getText());
-        assertEquals("Game development specialist", driver.findElement(By.xpath("//section[@id='services']/article[2]/figcaption/p[4]")).getText());
-        assertEquals("Current Master degree student at IPL", driver.findElement(By.xpath("//section[@id='services']/article[2]/figcaption/p[5]")).getText());
+        assertEquals("ABOUT ME \n Christian Andrés Bustamante Crespo \n Informatic Enginnering at ESPE \n 29 years old Current Master degree student at IPL \n Quito - Ecuador", driver.findElement(By.cssSelector("figcaption")).getText());
+        assertTrue(isElementPresent(By.cssSelector("#Christian_homepage > article.one_third > figure > img")));
+        assertEquals("SKILLS", driver.findElement(By.cssSelector("#Christian_homepage > article.one_third.lastbox > figcaption > h2")).getText());
+        assertEquals("PROGRAMMING LANGUAGES: C, C++, C#, Java, Objective-C, Swift,javascript, Phyton, PHP, HTML", driver.findElement(By.cssSelector("p")).getText());
+        assertEquals("IDES: Visual Studio, Xcode, Netbeans, Eclipse, Android Studio, Xamarin, IntelliJ IDEA, Unity3D, Unreal Engine 4, Autodesk Maya, Autodesk Mudbox, Adobe Ilustrador, Adobe Photoshop", driver.findElement(By.xpath("//div[@id='Christian_homepage']/article[2]/figcaption/p[2]")).getText());
     }
 
     @After
