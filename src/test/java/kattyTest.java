@@ -1,6 +1,8 @@
 /**
  * Created by katty on 29/05/2016.
  */
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
@@ -23,6 +25,7 @@ public class kattyTest {
         baseUrl= useRemote();
         System.out.println(baseUrl);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        Logger.getLogger("").setLevel(Level.OFF);
     }
 
     public String useRemote() {
@@ -49,7 +52,7 @@ public class kattyTest {
     public void testKatty2() throws Exception {
         driver.get(baseUrl+"katty.html");
         assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[1]//img")));
-        assertEquals(baseUrl+"images/katty.jpg", driver.findElement(By.xpath("//section[@id='services']/article[1]//img")).getAttribute("src"));
+        assertEquals(baseUrl+ "images/katty1.jpg", driver.findElement(By.xpath("//section[@id='services']/article[1]//img")).getAttribute("src"));
         assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[2]//h2")));
         assertEquals("ABOUT ME", driver.findElement(By.xpath("//section[@id='services']/article[2]//h2")).getText());
         assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[2]//p[1]")));

@@ -76,7 +76,7 @@ public class listTeamTest {
     public void testKatty() throws Exception {
         driver.get(baseUrl);
         assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[2]//img")));
-        assertEquals(baseUrl+"images/katty.jpg", driver.findElement(By.xpath("//section[@id='services']/article[2]//img")).getAttribute("src"));
+        assertEquals(baseUrl+ "images/katty2.jpg", driver.findElement(By.xpath("//section[@id='services']/article[2]//img")).getAttribute("src"));
         assertTrue(isElementPresent(By.cssSelector("#katty_member2 > h2")));
         assertEquals("Daniela Flores", driver.findElement(By.cssSelector("#katty_member2 > h2")).getText());
         assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[2]//p")));

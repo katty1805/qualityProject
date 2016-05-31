@@ -1,0 +1,23 @@
+.round {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+#top-social {
+    display: inline;
+    list-style: center;
+    list-align: center;
+}
+
+#top-social li {
+    display: block;
+}
+
+.social{
+    text-indent:-9999px;
+    width:60px;
+    height:60px;
+    -webkit-filter: grayscale(100%);
+    /*-webkit-filter: brightness(50%);*/
+}
