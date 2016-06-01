@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
@@ -27,7 +28,7 @@ public class teamMember3InfoTest {
     public void setUp() throws Exception {
         driver = new HtmlUnitDriver();
         baseUrl= useRemote();
-        System.out.println(baseUrl);
+        //System.out.println(baseUrl);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
@@ -55,7 +56,7 @@ public class teamMember3InfoTest {
     @Test
     public void aboutTest() throws Exception
     {
-        driver.get(baseUrl+"dani.html");
+        driver.get(baseUrl + "dani.html");
 
         assertTrue(isElementPresent(By.id("teamPhoto")));
         assertEquals(baseUrl+"images/danny.jpg", driver.findElement(By.id("teamPhoto")).getAttribute("src"));
@@ -85,7 +86,7 @@ public class teamMember3InfoTest {
     @Test
     public void summaryTest() throws Exception
     {
-        driver.get(baseUrl+"dani.html");
+        driver.get(baseUrl + "dani.html");
         WebElement aboutSection = driver.findElement(By.id("about_section"));
         WebElement summaryCaption = aboutSection.findElement(By.id("summary"));
 
@@ -96,6 +97,28 @@ public class teamMember3InfoTest {
         assertTrue(summaryId.getText().contains("System and computer engineer with 4 years"));
         assertTrue(summaryId.getText().contains("Strong problem- solving skills, quick learner and always"));
         assertTrue(summaryId.getText().contains("latest technologies and best practices."));
+    }
+
+    @Test
+    public void educationTest() throws Exception
+    {
+        driver.get(baseUrl + "dani.html");
+
+        assertEquals("EDUCATION", driver.findElement(By.id("educationTitle")).getText());
+        assertEquals("2008 - 2014    Universidad de las Fuerzas Armadas - ESPE", driver.findElement(By.id("uName")).getText());
+        assertEquals("BEng Computer Systems Engineering Expected result 2:1", driver.findElement(By.id("cName")).getText());
+
+        List<WebElement> allElements = driver.findElements(By.xpath("//ul[@id='iList']/li"));
+        String[] interests = {"Enjoyed developing applications for mobile devices."
+                , "Developing interest in Artificial Intelligence taking the AI and Games module in my final year."};
+        int count = 0;
+        for (WebElement element: allElements) {
+            //System.out.println(element.getText());
+            assertEquals(interests[count], element.getText());
+            count++;
+        }
+
+        assertTrue(driver.findElement(By.id("tName")).getText().contains("tourism in the historic center of Quito,"));
     }
 
     @After
