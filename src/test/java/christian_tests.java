@@ -58,10 +58,10 @@ public class christian_tests {
         assertTrue(basicInfo.getText().contains("Quito - Ecuador"));
 
         assertTrue(isElementPresent(By.cssSelector("#session2 > article.one_third > figure > img")));
-        assertTrue(isElementPresent(By.cssSelector("#Christian_homepage > article.one_third > figure > img")));
-        assertEquals("SKILLS", driver.findElement(By.cssSelector("#Christian_homepage > article.one_third.lastbox > figcaption > h2")).getText());
+        assertTrue(isElementPresent(By.cssSelector("#Christian_homepage article.one_third figure img")));
+        assertEquals("SKILLS", driver.findElement(By.cssSelector("#Christian_homepage article.one_third.lastbox figcaption h2")).getText());
         assertEquals("PROGRAMMING LANGUAGES: C, C++, C#, Java, Objective-C, Swift,javascript, Phyton, PHP, HTML", driver.findElement(By.cssSelector("p")).getText());
-        assertEquals("IDES: Visual Studio, Xcode, Netbeans, Eclipse, Android Studio, Xamarin, IntelliJ IDEA, Unity3D, Unreal Engine 4, Autodesk Maya, Autodesk Mudbox, Adobe Ilustrador, Adobe Photoshop", driver.findElement(By.xpath("//div[@id='Christian_homepage']/article[2]/figcaption/p[2]")).getText());
+        assertEquals("IDES: Visual Studio, Xcode, Netbeans, Eclipse, Android Studio, Xamarin, IntelliJ IDEA, Unity3D, Unreal Engine 4, Autodesk Maya, Autodesk Mudbox, Adobe Ilustrador, Adobe Photoshop", driver.findElement(By.xpath("//section[@id='session2']/article[2]/figcaption/p[2]")).getText());
 
         WebElement developedProyects = driver.findElement(By.id("developedProyectsID"));
         assertTrue(developedProyects.getText().contains("DEVELOPED PROYECTS"));
