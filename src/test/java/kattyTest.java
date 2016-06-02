@@ -120,7 +120,7 @@ public class kattyTest {
 
     @Test
     public void testKattylinks() throws Exception {
-        driver.get("http://localhost:8080/team/");
+        driver.get(baseUrl);
         driver.findElement(By.xpath("//section[@id='services']/article[2]//a")).click();
         driver.findElement(By.xpath("//nav[@id='nav']/ul/li[1]/a")).click();
         assertEquals("Counter Quality Team", driver.getTitle());
