@@ -121,6 +121,29 @@ public class teamMember3InfoTest {
         assertTrue(driver.findElement(By.id("tName")).getText().contains("tourism in the historic center of Quito,"));
     }
 
+    @Test
+    public void languagesTableTest() throws Exception
+    {
+        driver.get(baseUrl + "dani.html");
+
+        WebElement table_element = driver.findElement(By.id("languagesId"));
+        List<WebElement> tr_collection = table_element.findElements(By.xpath("id('languagesId')/tbody/tr"));
+
+        assertTrue(tr_collection.size() == 7); //NUMBER OF ROWS
+
+        String[] tableColumns = {"Programmes and applications", "Objective-C", "Swift", "Java", "C / C ++", "C#", "SQL"};
+
+        int row_num = 0;
+        for (WebElement trElement : tr_collection)  {
+            List<WebElement> td_collection=trElement.findElements(By.xpath("td"));
+            assertTrue(td_collection.size() == 3); //NUMBER OF COLUMNS
+
+            WebElement tdElement1 = td_collection.get(0);
+            assertEquals(tdElement1.getText(),tableColumns[row_num]);
+            row_num++;
+        }
+    }
+
     @After
     public void tearDown() throws Exception {
         driver.quit();
