@@ -57,6 +57,7 @@ public class christian_tests {
         assertTrue(basicInfo.getText().contains("29 years old Current Master degree student at IPL"));
         assertTrue(basicInfo.getText().contains("Quito - Ecuador"));
 
+        assertTrue(isElementPresent(By.cssSelector("#session2 > article.one_third > figure > img")));
         assertTrue(isElementPresent(By.cssSelector("#Christian_homepage > article.one_third > figure > img")));
         assertEquals("SKILLS", driver.findElement(By.cssSelector("#Christian_homepage > article.one_third.lastbox > figcaption > h2")).getText());
         assertEquals("PROGRAMMING LANGUAGES: C, C++, C#, Java, Objective-C, Swift,javascript, Phyton, PHP, HTML", driver.findElement(By.cssSelector("p")).getText());
