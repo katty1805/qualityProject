@@ -21,3 +21,30 @@
     -webkit-filter: grayscale(100%);
     /*-webkit-filter: brightness(50%);*/
 }
+
+#header #nav {
+    position: fixed;
+    width: 100%;
+    margin: 0px;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+}
+
+#nav ul {
+    float: right;
+}
+
+body div.wrapper p {
+    font-size: 18px;
+}
+
+body div.wrapper td {
+    font-size: 18px;
+    padding: 6px;
+}
+
+.education1 {
+    background-image: url("../images/education.png");
+    text-align:left;
+}
