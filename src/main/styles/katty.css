@@ -11,7 +11,12 @@
 }
 
 #top-social li {
-    display: block;
+    display: inline;
+    margin: 0 6px 0 6px;
+}
+
+#container,#educa, #works, #skills, #expers {
+    padding: 70px;
 }
 
 .social{
@@ -41,10 +46,55 @@ body div.wrapper p {
 
 body div.wrapper td {
     font-size: 18px;
-    padding: 6px;
+    padding: 3px;
+}
+
+#skills td {
+    font-size: 20px;
+}
+
+#skills p {
+    font-size: 25px;
+
 }
 
 .education1 {
     background-image: url("../images/education.png");
     text-align:left;
 }
+
+#about-me {
+    line-height: 1.4;
+}
+
+
+
+#works h3 {
+    font: 25px/30px 'opensans-bold', sans-serif;
+}
+
+#educa h3 {
+    font: 25px/30px 'opensans-bold', sans-serif;
+}
+
+#works h4 {
+
+    font: 16px/24px "Arial", sans-serif;
+}
+
+#educa h4 {
+
+    font: 16px/24px "Arial", sans-serif;
+}
+
+#educa h5 {
+    font: 15px/24px 'opensans-regular', sans-serif;
+}
+
+.school {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin: 25px 0;
+}
+
