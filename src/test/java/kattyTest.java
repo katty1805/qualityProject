@@ -72,6 +72,71 @@ public class kattyTest {
     }
 
 
+
+    @Test
+    public void testInforedu() throws Exception {
+        driver.get(baseUrl);
+        driver.findElement(By.xpath("//section[@id='services']/article[2]//a")).click();
+        assertEquals("", driver.findElement(By.cssSelector("#education > article.one_third > figure > img.round")).getText());
+        assertTrue(isElementPresent(By.cssSelector("#education1 > figcaption > h2")));
+        assertEquals("EDUCATION", driver.findElement(By.cssSelector("#education1 > figcaption > h2")).getText());
+        assertTrue(isElementPresent(By.cssSelector("#education > article.one_third > figure > img.round")));
+        assertEquals(baseUrl+"images/education.png", driver.findElement(By.xpath("//section[@id='education']/article[1]//img")).getAttribute("src"));
+        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//h2")));
+        assertEquals("EDUCATION", driver.findElement(By.xpath("//section[@id='education']/article[2]//h2")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//tr[1]/td[1]")));
+        assertEquals("1996-2003", driver.findElement(By.xpath("//section[@id='education']/article[2]//tr[1]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//tr[1]/td[2]")));
+        assertEquals("Colegio Bilingue Franz Schubert", driver.findElement(By.xpath("//section[@id='education']/article[2]//tr[1]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//tr[2]/td[1]")));
+        assertEquals("2003-2009", driver.findElement(By.xpath("//section[@id='education']/article[2]//tr[2]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//tr[2]/td[2]")));
+        assertEquals("Colegio Municipal Experimental Sebastian de Benalcázar", driver.findElement(By.xpath("//section[@id='education']/article[2]//tr[2]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//tr[3]/td[1]")));
+        assertEquals("2009-2015", driver.findElement(By.xpath("//section[@id='education']/article[2]//tr[3]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//tr[3]/td[2]")));
+        assertEquals("Electronic Network and Comunication Data Engineering", driver.findElement(By.xpath("//section[@id='education']/article[2]//tr[3]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//tr[4]/td[1]")));
+        assertEquals("Thesis", driver.findElement(By.xpath("//section[@id='education']/article[2]//tr[4]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//tr[4]/td[2]")));
+        assertEquals("Optimización del algoritmo de encriptación asimétrica", driver.findElement(By.xpath("//section[@id='education']/article[2]//tr[4]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//tr[5]/td[2]")));
+        assertEquals("RSA para la mitigación de ataques de seguridad de redes", driver.findElement(By.xpath("//section[@id='education']/article[2]//tr[5]/td[2]")).getText());
+    }
+
+    @Test
+    public void testKattymenu() throws Exception {
+        driver.get(baseUrl);
+        driver.findElement(By.xpath("//section[@id='services']/article[2]//a")).click();
+        assertTrue(isElementPresent(By.xpath("//nav[@id='nav']/ul/li[1]/a")));
+        assertEquals("Homepage", driver.findElement(By.xpath("//nav[@id='nav']/ul/li[1]/a")).getText());
+        assertTrue(isElementPresent(By.xpath("//nav[@id='nav']/ul/li[2]/a")));
+        assertEquals("About Me", driver.findElement(By.xpath("//nav[@id='nav']/ul/li[2]/a")).getText());
+        assertTrue(isElementPresent(By.xpath("//nav[@id='nav']/ul/li[3]/a")));
+        assertEquals("Education", driver.findElement(By.xpath("//nav[@id='nav']/ul/li[3]/a")).getText());
+        assertTrue(isElementPresent(By.xpath("//nav[@id='nav']/ul/li[4]/a")));
+        assertEquals("Experience", driver.findElement(By.xpath("//nav[@id='nav']/ul/li[4]/a")).getText());
+    }
+
+    @Test
+    public void testKattylinks() throws Exception {
+        driver.get(baseUrl);
+        driver.findElement(By.xpath("//section[@id='services']/article[2]//a")).click();
+        driver.findElement(By.xpath("//nav[@id='nav']/ul/li[1]/a")).click();
+        assertEquals("Counter Quality Team", driver.getTitle());
+        driver.findElement(By.xpath("//section[@id='services']/article[2]//a")).click();
+        assertTrue(isElementPresent(By.id("about")));
+        driver.findElement(By.xpath("//nav[@id='nav']/ul/li[2]/a")).click();
+        assertTrue(driver.getCurrentUrl().matches("^[\\s\\S]*#about$"));
+        assertTrue(isElementPresent(By.id("education")));
+        driver.findElement(By.xpath("//nav[@id='nav']/ul/li[3]/a")).click();
+        assertTrue(driver.getCurrentUrl().matches("^[\\s\\S]*#education$"));
+        assertTrue(isElementPresent(By.id("experience")));
+        driver.findElement(By.xpath("//nav[@id='nav']/ul/li[4]/a")).click();
+        assertTrue(driver.getCurrentUrl().matches("^[\\s\\S]*#experience$"));
+    }
+
+
     @After
     public void tearDown() throws Exception {
         driver.quit();
