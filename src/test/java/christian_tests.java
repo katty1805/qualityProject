@@ -78,14 +78,14 @@ public class christian_tests {
 
         assertTrue(isElementPresent(By.id("facebook_link_id")));
         WebElement facebookLink = driver.findElement(By.id("facebook_link_id"));
-        assertTrue(facebookLink.getAttribute("src").contains("https://www.facebook.com/tribaludic"));
+        assertTrue(facebookLink.getAttribute("href").contains("https://www.facebook.com/tribaludic"));
 
         assertEquals("SHOW MORE", driver.findElement(By.cssSelector("center > h2")).getText());
         assertEquals("Simulation, Virtual Reality and video Games proyect demos", driver.findElement(By.cssSelector("center > p")).getText());
 
-        assertTrue(isElementPresent(By.id("youtube_logo_id")));
-        WebElement youtubeElement = driver.findElement(By.id("youtube_logo_id"));
-        assertTrue(youtubeElement.getAttribute("src").contains("https://www.youtube.com/watch?v=7eynCtj_74g&index=1&list=UUA5uTzoQIV49CTr4ZJzuULw"));
+        assertTrue(isElementPresent(By.id("youtube_id")));
+        WebElement youtubeElement = driver.findElement(By.id("youtube_id"));
+        assertTrue(youtubeElement.getAttribute("href").contains("https://www.youtube.com/watch?v=7eynCtj_74g&index=1&list=UUA5uTzoQIV49CTr4ZJzuULw"));
 
 
     }
