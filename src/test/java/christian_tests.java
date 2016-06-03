@@ -85,7 +85,7 @@ public class christian_tests {
 
         assertTrue(isElementPresent(By.id("youtube_logo_id")));
         WebElement youtubeElement = driver.findElement(By.id("youtube_logo_id"));
-        assertTrue(facebookLink.getAttribute("src").contains("https://www.youtube.com/watch?v=7eynCtj_74g&index=1&list=UUA5uTzoQIV49CTr4ZJzuULw"));
+        assertTrue(youtubeElement.getAttribute("src").contains("https://www.youtube.com/watch?v=7eynCtj_74g&index=1&list=UUA5uTzoQIV49CTr4ZJzuULw"));
 
 
     }
