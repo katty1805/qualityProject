@@ -41,20 +41,20 @@ public class christian_tests {
         driver.get(baseUrl);
 
         WebElement webElement = driver.findElement(By.id("hgroup"));
-        assertTrue(webElement.getAttribute("h1").contains("COUNTER QUALITY TEAM"));
-        assertTrue(webElement.getAttribute("h2").contains("Software Quality Testers"));
+        assertTrue(webElement.getText().contains("COUNTER QUALITY TEAM"));
+        assertTrue(webElement.getText().contains("Software Quality Testers"));
 
         webElement = driver.findElement(By.id("christian_member1"));
-        assertTrue(webElement.getAttribute("h2").contains("Christian Bustamante"));
-        assertTrue(webElement.getAttribute("p").contains("Informatic Engineering specialist in virtual reality and game development."));
+        assertTrue(webElement.getText().contains("Christian Bustamante"));
+        assertTrue(webElement.getText().contains("Informatic Engineering specialist in virtual reality and game development."));
 
         webElement = driver.findElement(By.id("katty_member2"));
-        assertTrue(webElement.getAttribute("h2").contains("Daniela Flores"));
-        assertTrue(webElement.getAttribute("p").contains("Electronic Enginnering specialist in system network designer."));
+        assertTrue(webElement.getText().contains("Daniela Flores"));
+        assertTrue(webElement.getText().contains("Electronic Enginnering specialist in system network designer."));
 
         webElement = driver.findElement(By.id("dany_member3"));
-        assertTrue(webElement.getAttribute("h2").contains("Daniel Vera"));
-        assertTrue(webElement.getAttribute("p").contains("Informatic Enginnering specialist in native mobile development."));
+        assertTrue(webElement.getText().contains("Daniel Vera"));
+        assertTrue(webElement.getText().contains("Informatic Enginnering specialist in native mobile development."));
 
         webElement = driver.findElement(By.id("linkToAndres"));
         assertTrue(webElement.getText().contains("andres.html"));
@@ -66,7 +66,7 @@ public class christian_tests {
         assertTrue(webElement.getText().contains("dani.html"));
 
         webElement = driver.findElement(By.id("copyright"));
-        assertTrue(webElement.getAttribute("p").contains("Copyright &copy; 2016 - All Rights Reserved - Counter Quality Team"));
+        assertTrue(webElement.getText().contains("Copyright &copy; 2016 - All Rights Reserved - Counter Quality Team"));
 
     }
 
@@ -74,13 +74,13 @@ public class christian_tests {
     public void index_Images_test() throws  Exception{
         driver.get(baseUrl);
 
-        WebElement webElement = driver.findElement(By.id("slider"));
+        WebElement webElement = driver.findElement(By.id("IndexPicureID"));
         assertTrue(webElement.getAttribute("src").contains("images/IndexPicture.jpg"));
 
         webElement = driver.findElement(By.id("imagenAndres"));
         assertTrue(webElement.getAttribute("src").contains("images/andres.jpg"));
 
-        webElement = driver.findElement(By.id("imagenKattuy"));
+        webElement = driver.findElement(By.id("imagenKatty"));
         assertTrue(webElement.getAttribute("src").contains("images/katty2.jpg"));
 
         webElement = driver.findElement(By.id("imagenDanny"));
@@ -107,8 +107,8 @@ public class christian_tests {
         driver.get(baseUrl);
 
         WebElement webElement = driver.findElement(By.id("hgroup"));
-        assertTrue(webElement.getAttribute("h1").contains("COUNTER QUALITY TEAM"));
-        assertTrue(webElement.getAttribute("h2").contains("Software Quality Testers"));
+        assertTrue(webElement.getText().contains("COUNTER QUALITY TEAM"));
+        assertTrue(webElement.getText().contains("Software Quality Testers"));
 
         webElement = driver.findElement(By.id("aboutMeID"));
         assertTrue(webElement.getText().contains("ABOUT ME"));
@@ -123,14 +123,14 @@ public class christian_tests {
         assertTrue(webElement.getText().contains("IDES: Visual Studio, Xcode, Netbeans, Eclipse, Android Studio, Xamarin, IntelliJ IDEA, Unity3D, Unreal Engine 4, Autodesk Maya, Autodesk Mudbox, Adobe Ilustrador, Adobe Photoshop"));
 
         webElement = driver.findElement(By.id("developedProyectsID"));
-        assertTrue(webElement.getAttribute("h2").contains("DEVELOPED PROYECTS"));
+        assertTrue(webElement.getText().contains("DEVELOPED PROYECTS"));
 
         webElement = driver.findElement(By.id("table1"));
-        assertTrue(webElement.getAttribute("h2").contains("SHOW MORE"));
-        assertTrue(webElement.getAttribute("p").contains("Simulation, Virtual Reality and video Games proyect demos"));
+        assertTrue(webElement.getText().contains("SHOW MORE"));
+        assertTrue(webElement.getText().contains("Simulation, Virtual Reality and video Games proyect demos"));
 
         webElement = driver.findElement(By.id("copyright"));
-        assertTrue(webElement.getAttribute("p").contains("Copyright &copy; 2016 - All Rights Reserved - Counter Quality Team"));
+        assertTrue(webElement.getText().contains("Copyright &copy; 2016 - All Rights Reserved - Counter Quality Team"));
 
     }
 
