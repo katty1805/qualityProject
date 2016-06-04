@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.*;
@@ -57,17 +58,16 @@ public class christian_tests {
         assertTrue(webElement.getText().contains("Informatic Enginnering specialist in native mobile development."));
 
         webElement = driver.findElement(By.id("linkToAndres"));
-        assertTrue(webElement.getText().contains("andres.html"));
+        assertTrue(webElement.getAttribute("href").contains("andres.html"));
 
         webElement = driver.findElement(By.id("linkToKatty"));
-        assertTrue(webElement.getText().contains("katty.html"));
+        assertTrue(webElement.getAttribute("href").contains("katty.html"));
 
         webElement = driver.findElement(By.id("linkTeam3Info"));
-        assertTrue(webElement.getText().contains("dani.html"));
+        assertTrue(webElement.getAttribute("href").contains("dani.html"));
 
         webElement = driver.findElement(By.id("copyright"));
-        assertTrue(webElement.getText().contains("Copyright &copy; 2016 - All Rights Reserved - Counter Quality Team"));
-
+        assertTrue(webElement.findElement(By.cssSelector("p")).getText().contains("Copyright © 2016 - All Rights Reserved - Counter Quality Team"));
     }
 
     @Test
@@ -104,7 +104,7 @@ public class christian_tests {
 
     @Test
     public void andres_Text_test() throws  Exception{
-        driver.get(baseUrl);
+        driver.get(baseUrl + "andres.html");
 
         WebElement webElement = driver.findElement(By.id("hgroup"));
         assertTrue(webElement.getText().contains("COUNTER QUALITY TEAM"));
@@ -125,18 +125,18 @@ public class christian_tests {
         webElement = driver.findElement(By.id("developedProyectsID"));
         assertTrue(webElement.getText().contains("DEVELOPED PROYECTS"));
 
-        webElement = driver.findElement(By.id("table1"));
+        webElement = driver.findElement(By.id("showmoreID"));
         assertTrue(webElement.getText().contains("SHOW MORE"));
         assertTrue(webElement.getText().contains("Simulation, Virtual Reality and video Games proyect demos"));
 
         webElement = driver.findElement(By.id("copyright"));
-        assertTrue(webElement.getText().contains("Copyright &copy; 2016 - All Rights Reserved - Counter Quality Team"));
+        assertTrue(webElement.getText().contains("Copyright © 2016 - All Rights Reserved - Counter Quality Team"));
 
     }
 
     @Test
     public void andres_Images_test() throws  Exception{
-        driver.get(baseUrl);
+        driver.get(baseUrl + "andres.html");
 
         WebElement webElement = driver.findElement(By.id("profilePicture"));
         assertTrue(webElement.getAttribute("src").contains("images/andres.jpg"));
@@ -154,22 +154,22 @@ public class christian_tests {
 
     @Test
     public void andres_Videos_test() throws  Exception{
-        driver.get(baseUrl);
+        driver.get(baseUrl + "andres.html");
 
-        WebElement webElement = driver.findElement(By.id("video1"));
+        WebElement webElement = driver.findElement(By.id("video_1"));
         assertTrue(webElement.getAttribute("src").contains("https://www.youtube.com/embed/VbK4XRSwBtY"));
 
-        webElement = driver.findElement(By.id("video2"));
+        webElement = driver.findElement(By.id("video_2"));
         assertTrue(webElement.getAttribute("src").contains("https://www.youtube.com/embed/5_QHQ45pQZI"));
 
-        webElement = driver.findElement(By.id("video3"));
+        webElement = driver.findElement(By.id("video_3"));
         assertTrue(webElement.getAttribute("src").contains("https://www.youtube.com/embed/Vxpgi4guwz4"));
 
     }
 
     @Test
     public void andres_Links_test() throws  Exception{
-        driver.get(baseUrl);
+        driver.get(baseUrl + "andres.html");
 
         WebElement webElement = driver.findElement(By.id("facebook_link_id"));
         assertTrue(webElement.getAttribute("href").contains("https://www.facebook.com/tribaludic"));
