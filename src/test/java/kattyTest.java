@@ -362,7 +362,7 @@ public class kattyTest {
 
     @Test
     public void testPiedepagina() throws Exception {
-        driver.get("http://localhost:8080/team/katty.html");
+        driver.get(baseUrl+ "katty.html");
         assertTrue(isElementPresent(By.cssSelector("#copyright > p")));
         assertEquals("Copyright © 2016 - All Rights Reserved - Counter Quality Team", driver.findElement(By.cssSelector("#copyright > p")).getText());
     }
