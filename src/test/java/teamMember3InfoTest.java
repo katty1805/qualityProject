@@ -147,6 +147,35 @@ public class teamMember3InfoTest {
         testTable(tr_collection,tableColumns);
     }
 
+    @Test
+    public void experienceTest() throws Exception
+    {
+        driver.get(baseUrl + "dani.html");
+
+        assertEquals("EXPERIENCE", driver.findElement(By.id("experienceTitle")).getText());
+
+        assertEquals("Find Out Quito. - 2014 - to date", driver.findElement(By.id("job1")).getText());
+        assertTrue(driver.findElement(By.id("job1_detail")).getText().contains("Tourism was organized by Conquito in 2014."));
+        assertTrue(driver.findElement(By.id("job1_detail")).getText().contains("which helps the tourism in Quito using augmented reality."));
+        assertTrue(driver.findElement(By.id("job1_detail")).getText().contains("iOS application and object recognition for iOS and Android."));
+        assertEquals("http://www.turismo.gob.ec/find-out-quito-una-nueva-forma-de-hacer-turismo/", driver.findElement(By.id("job1_link")).getAttribute("href"));
+
+        assertEquals("DevsuSoftware Cia. Ltda. - June 2014 - to October 2015", driver.findElement(By.id("job2")).getText());
+        assertTrue(driver.findElement(By.id("job2_detail")).getText().contains("Mobile Application Development iOS, Shopping Assistant Supermaxi. Among"));
+        assertTrue(driver.findElement(By.id("job2_detail")).getText().contains("and use coupons. The application communicates with a"));
+        assertTrue(driver.findElement(By.id("job2_detail")).getText().contains("Push notifications and voice recognition services are used in the application"));
+        assertEquals("https://itunes.apple.com/ec/app/supermaxi/id692828454?mt=8", driver.findElement(By.id("job2_link")).getAttribute("href"));
+    }
+
+    @Test
+    public void linkedinTest() throws Exception {
+        driver.get(baseUrl + "dani.html");
+
+        WebElement linkedinLink = driver.findElement(By.id("linkedin_id"));
+        assertEquals("https://ec.linkedin.com/in/danielvera64", linkedinLink.getAttribute("href"));
+        assertEquals(baseUrl + "images/linkedin_logo_64.png", linkedinLink.findElement(By.id("linkedin_logo_id")).getAttribute("src"));
+    }
+
     @After
     public void tearDown() throws Exception {
         driver.quit();
