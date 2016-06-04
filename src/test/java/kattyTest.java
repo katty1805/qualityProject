@@ -267,6 +267,67 @@ public class kattyTest {
     }
 
 
+    /*  Test parte 1 skill columna1-fila1-2*/
+
+    @Test
+    public void testSkill1Katty() throws Exception {
+        driver.get(baseUrl+ "katty.html");
+        assertTrue(isElementPresent(By.xpath("//section[@id='skill1']/article[1]//h2")));
+        assertEquals("SKILLS", driver.findElement(By.xpath("//section[@id='skill1']/article[1]//h2")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='skill2']/article[1]//img")));
+        assertEquals(baseUrl+"images/skill.png", driver.findElement(By.xpath("//section[@id='skill2']/article[1]//img")).getAttribute("src"));
+    }
+
+    /*  Test parte 2 skill elementos-columna1-fila2*/
+
+    @Test
+    public void testSkill() throws Exception {
+        driver.get(baseUrl + "katty.html");
+        assertEquals(8, driver.findElements(By.xpath("//section[@id='skill2']//tr/td[1]")).size());
+    }
+    /*  Test parte 3 skill elementos-columna1-fila2*/
+
+    @Test
+    public void testSkill2Katty() throws Exception {
+        driver.get(baseUrl+ "katty.html");
+        assertTrue(isElementPresent(By.xpath("//section[@id='skill1']/article[2]//p")));
+        assertEquals("Knowledge Networks and Data Communication", driver.findElement(By.xpath("//section[@id='skill1']/article[2]//p")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='skill2']/article[2]//tr[1]/td[1]")));
+        assertEquals("Design Structure Networks", driver.findElement(By.xpath("//section[@id='skill2']/article[2]//tr[1]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='skill2']/article[2]//tr[1]/td[2]")));
+        assertEquals("80%", driver.findElement(By.xpath("//section[@id='skill2']/article[2]//tr[1]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='skill2']/article[2]//tr[2]/td[1]")));
+        assertEquals("Fiber Optic (Optical Communication)", driver.findElement(By.xpath("//section[@id='skill2']/article[2]//tr[2]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='skill2']/article[2]//tr[2]/td[2]")));
+        assertEquals("55%", driver.findElement(By.xpath("//section[@id='skill2']/article[2]//tr[2]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='skill2']/article[2]//tr[3]/td[1]")));
+        assertEquals("Internetworking with TCP/IP", driver.findElement(By.xpath("//section[@id='skill2']/article[2]//tr[3]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='skill2']/article[2]//tr[3]/td[2]")));
+        assertEquals("75%", driver.findElement(By.xpath("//section[@id='skill2']/article[2]//tr[3]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='skill2']/article[2]//tr[4]/td[1]")));
+        assertEquals("Network Security", driver.findElement(By.xpath("//section[@id='skill2']/article[2]//tr[4]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='skill2']/article[2]//tr[4]/td[2]")));
+        assertEquals("80%", driver.findElement(By.xpath("//section[@id='skill2']/article[2]//tr[4]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='skill2']/article[2]//tr[5]/td[1]")));
+        assertEquals("Project Management Network", driver.findElement(By.xpath("//section[@id='skill2']/article[2]//tr[5]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='skill2']/article[2]//tr[5]/td[2]")));
+        assertEquals("75%", driver.findElement(By.xpath("//section[@id='skill2']/article[2]//tr[5]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='skill2']/article[2]//tr[6]/td[1]")));
+        assertEquals("IP Tephony", driver.findElement(By.xpath("//section[@id='skill2']/article[2]//tr[6]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='skill2']/article[2]//tr[6]/td[2]")));
+        assertEquals("50%", driver.findElement(By.xpath("//section[@id='skill2']/article[2]//tr[6]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='skill2']/article[2]//tr[7]/td[1]")));
+        assertEquals("JAVA", driver.findElement(By.xpath("//section[@id='skill2']/article[2]//tr[7]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='skill2']/article[2]//tr[7]/td[2]")));
+        assertEquals("75%", driver.findElement(By.xpath("//section[@id='skill2']/article[2]//tr[7]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='skill2']/article[2]//tr[8]/td[1]")));
+        assertEquals("Wireless Networks", driver.findElement(By.xpath("//section[@id='skill2']/article[2]//tr[8]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='skill2']/article[2]//tr[8]/td[2]")));
+        assertEquals("75%", driver.findElement(By.xpath("//section[@id='skill2']/article[2]//tr[8]/td[2]")).getText());
+    }
+
+
+
     @After
     public void tearDown() throws Exception {
         driver.quit();
