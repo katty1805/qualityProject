@@ -326,6 +326,48 @@ public class kattyTest {
         assertEquals("75%", driver.findElement(By.xpath("//section[@id='skill2']/article[2]//tr[8]/td[2]")).getText());
     }
 
+    /*  Test parte 1 experience columna1-fila1-2*/
+
+        @Test
+    public void testExper1Katty() throws Exception {
+        driver.get(baseUrl+"katty.html");
+        assertTrue(isElementPresent(By.xpath("//section[@id='exper1']/article[1]//h2")));
+        assertEquals("Experience", driver.findElement(By.xpath("//section[@id='exper1']/article[1]//h2")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='exper2']/article[1]//img")));
+        assertEquals(baseUrl+"images/folder.png", driver.findElement(By.xpath("//section[@id='exper2']/article[1]//img")).getAttribute("src"));
+    }
+
+    /*  Test parte 2 experience elementos columna1-fila2-2*/
+
+    @Test
+    public void testExper() throws Exception {
+        driver.get(baseUrl + "katty.html");
+        assertEquals(2, driver.findElements(By.xpath("//section[@id='exper2']//iframe")).size());
+    }
+
+    /*  Test parte 1 experience columna1-fila2-2*/
+
+
+
+    @Test
+    public void testExper2Katty() throws Exception {
+        driver.get(baseUrl + "katty.html");
+        assertTrue(isElementPresent(By.id("video_1")));
+        assertEquals("https://www.youtube.com/embed/HOaIqQAeaik", driver.findElement(By.id("video_1")).getAttribute("src"));
+        assertTrue(isElementPresent(By.id("video_3")));
+        assertEquals("https://www.youtube.com/embed/B5zppA-EikE", driver.findElement(By.id("video_3")).getAttribute("src"));
+    }
+
+    /*  Test pie de página*/
+
+    @Test
+    public void testPiedepagina() throws Exception {
+        driver.get("http://localhost:8080/team/katty.html");
+        assertTrue(isElementPresent(By.cssSelector("#copyright > p")));
+        assertEquals("Copyright © 2016 - All Rights Reserved - Counter Quality Team", driver.findElement(By.cssSelector("#copyright > p")).getText());
+    }
+
+
 
 
     @After
