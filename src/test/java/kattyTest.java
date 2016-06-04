@@ -37,7 +37,7 @@ public class kattyTest {
             return remote;
     }
 
-    /*  Test pagina katty*/
+    /*  Test encabezado katty*/
 
     @Test
     public void testKatty1() throws Exception {
@@ -91,65 +91,180 @@ public class kattyTest {
         assertTrue(driver.getCurrentUrl().matches("^[\\s\\S]*#section-works$"));
     }
 
+    /*  Test parte 1 about me-fila 1-columna1-2*/
 
     @Test
-    public void testKatty2() throws Exception {
-        driver.get(baseUrl+"katty.html");
+    public void testAboutmeKatty() throws Exception {
+        driver.get(baseUrl + "katty.html");
         assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[1]//img")));
         assertEquals(baseUrl+ "images/katty1.jpg", driver.findElement(By.xpath("//section[@id='services']/article[1]//img")).getAttribute("src"));
         assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[2]//h2")));
         assertEquals("ABOUT ME", driver.findElement(By.xpath("//section[@id='services']/article[2]//h2")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[2]//p[1]")));
-        assertEquals("Daniela Katherine Flores Taipe", driver.findElement(By.xpath("//section[@id='services']/article[2]//p[1]")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[2]//p[2]")));
-        assertEquals("Electronic Engineering at ESPE", driver.findElement(By.xpath("//section[@id='services']/article[2]//p[2]")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[2]//p[3]")));
-        assertEquals("24 years old", driver.findElement(By.xpath("//section[@id='services']/article[2]//p[3]")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[2]//p[4]")));
-        assertEquals("Ecuadorian", driver.findElement(By.xpath("//section[@id='services']/article[2]//p[4]")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[2]//p[5]")));
-        assertEquals("Quito-Ecuador", driver.findElement(By.xpath("//section[@id='services']/article[2]//p[5]")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[2]//p[6]")));
-        assertEquals("CCNA Routing and Switching", driver.findElement(By.xpath("//section[@id='services']/article[2]//p[6]")).getText());
-        assertTrue(isElementPresent(By.cssSelector("#copyright > p")));
-        assertEquals("Copyright © 2016 - All Rights Reserved - Counter Quality Team", driver.findElement(By.cssSelector("#copyright > p")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='services']/article[2]//p")));
+        assertEquals("I am Daniela Flores and I am a student of a Master's in Computer Engineering and Mobile Computing, with a passion for computers and electronics. I love tinkering around with stuff and see what I can make without blowing everything up. That's why I decided to major in electronics, networks and data communication, where I learned most of the things I know today. This way I could join all my passions and master them. As my thesis, I did a study on the optimization of encryption algorythms. I have worked as a network administrator for iPlanet where I was responsible for managing a whole team of technicians. I specialize in network design for companies and always aim to be the best I can at my work. I'm always open to exciting job opportunities.", driver.findElement(By.xpath("//section[@id='services']/article[2]//p")).getText());
     }
 
-
+    /*  Test parte 2 about me-fila 2-columna1*/
 
     @Test
-    public void testInforedu() throws Exception {
-        driver.get(baseUrl);
-        driver.findElement(By.xpath("//section[@id='services']/article[2]//a")).click();
-        assertEquals("", driver.findElement(By.cssSelector("#education > article.one_third > figure > img.round")).getText());
-        assertTrue(isElementPresent(By.cssSelector("#education1 > figcaption > h2")));
-        assertEquals("EDUCATION", driver.findElement(By.cssSelector("#education1 > figcaption > h2")).getText());
-        assertTrue(isElementPresent(By.cssSelector("#education > article.one_third > figure > img.round")));
-        assertEquals(baseUrl+"images/education.png", driver.findElement(By.xpath("//section[@id='education']/article[1]//img")).getAttribute("src"));
-        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//h2")));
-        assertEquals("EDUCATION", driver.findElement(By.xpath("//section[@id='education']/article[2]//h2")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//tr[1]/td[1]")));
-        assertEquals("1996-2003", driver.findElement(By.xpath("//section[@id='education']/article[2]//tr[1]/td[1]")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//tr[1]/td[2]")));
-        assertEquals("Colegio Bilingue Franz Schubert", driver.findElement(By.xpath("//section[@id='education']/article[2]//tr[1]/td[2]")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//tr[2]/td[1]")));
-        assertEquals("2003-2009", driver.findElement(By.xpath("//section[@id='education']/article[2]//tr[2]/td[1]")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//tr[2]/td[2]")));
-        assertEquals("Colegio Municipal Experimental Sebastian de Benalcázar", driver.findElement(By.xpath("//section[@id='education']/article[2]//tr[2]/td[2]")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//tr[3]/td[1]")));
-        assertEquals("2009-2015", driver.findElement(By.xpath("//section[@id='education']/article[2]//tr[3]/td[1]")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//tr[3]/td[2]")));
-        assertEquals("Electronic Network and Comunication Data Engineering", driver.findElement(By.xpath("//section[@id='education']/article[2]//tr[3]/td[2]")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//tr[4]/td[1]")));
-        assertEquals("Thesis", driver.findElement(By.xpath("//section[@id='education']/article[2]//tr[4]/td[1]")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//tr[4]/td[2]")));
-        assertEquals("Optimización del algoritmo de encriptación asimétrica", driver.findElement(By.xpath("//section[@id='education']/article[2]//tr[4]/td[2]")).getText());
-        assertTrue(isElementPresent(By.xpath("//section[@id='education']/article[2]//tr[5]/td[2]")));
-        assertEquals("RSA para la mitigación de ataques de seguridad de redes", driver.findElement(By.xpath("//section[@id='education']/article[2]//tr[5]/td[2]")).getText());
+    public void testLinksFbTwit() throws Exception {
+        driver.get(baseUrl + "katty.html");
+        assertTrue(isElementPresent(By.xpath("//ul[@id='top-social']/li[1]//img")));
+        assertEquals(baseUrl+"images/facebook.png", driver.findElement(By.xpath("//ul[@id='top-social']/li[1]//img")).getAttribute("src"));
+        assertTrue(isElementPresent(By.xpath("//ul[@id='top-social']/li[2]//img")));
+        assertEquals(baseUrl+"images/twitter.png", driver.findElement(By.xpath("//ul[@id='top-social']/li[2]//img")).getAttribute("src"));
+        assertEquals("https://es-la.facebook.com/katty.flores.58", driver.findElement(By.xpath("//ul[@id='top-social']/li[1]/a")).getAttribute("href"));
+        driver.findElement(By.xpath("//ul[@id='top-social']/li[1]/a")).click();
+        assertEquals("Katty Flores | Facebook", driver.getTitle());
+        driver.get(baseUrl + "katty.html");
+        assertEquals("https://twitter.com/Kathbonita", driver.findElement(By.xpath("//ul[@id='top-social']/li[2]/a")).getAttribute("href"));
+        driver.findElement(By.xpath("//ul[@id='top-social']/li[2]/a")).click();
+        assertEquals("Katty Flores (@Kathbonita) on Twitter", driver.getTitle());
+    }
+
+    /*  Test parte 2 about me-fila 2-columna2*/
+    @Test
+    public void testContactdetailsKatty() throws Exception {
+        driver.get(baseUrl + "katty.html");
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//h2")));
+        assertEquals("CONTACT DETAILS", driver.findElement(By.xpath("//section[@id='details']/article[2]//h2")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//tr[1]/td[1]")));
+        assertEquals("Name", driver.findElement(By.xpath("//section[@id='details']/article[2]//tr[1]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//tr[1]/td[2]")));
+        assertEquals("Daniela Katherine Flores Taipe", driver.findElement(By.xpath("//section[@id='details']/article[2]//tr[1]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//tr[2]/td[1]")));
+        assertEquals("Career", driver.findElement(By.xpath("//section[@id='details']/article[2]//tr[2]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//tr[2]/td[2]")));
+        assertEquals("Electronic Engineering at ESPE", driver.findElement(By.xpath("//section[@id='details']/article[2]//tr[2]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//tr[3]/td[1]")));
+        assertEquals("Age", driver.findElement(By.xpath("//section[@id='details']/article[2]//tr[3]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//tr[3]/td[2]")));
+        assertEquals("24 years old", driver.findElement(By.xpath("//section[@id='details']/article[2]//tr[3]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//tr[4]/td[1]")));
+        assertEquals("Address", driver.findElement(By.xpath("//section[@id='details']/article[2]//tr[4]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//tr[4]/td[2]")));
+        assertEquals("Urb. Terranova Mnz C", driver.findElement(By.xpath("//section[@id='details']/article[2]//tr[4]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//tr[5]/td[1]")));
+        assertEquals("Telephone", driver.findElement(By.xpath("//section[@id='details']/article[2]//tr[5]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//tr[5]/td[2]")));
+        assertEquals("(+593)984147860", driver.findElement(By.xpath("//section[@id='details']/article[2]//tr[5]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//tr[6]/td[1]")));
+        assertEquals("e-mail", driver.findElement(By.xpath("//section[@id='details']/article[2]//tr[6]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//tr[6]/td[2]")));
+        assertEquals("kattyf_@hotmail.com", driver.findElement(By.xpath("//section[@id='details']/article[2]//tr[6]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//tr[7]/td[1]")));
+        assertEquals("Nationality", driver.findElement(By.xpath("//section[@id='details']/article[2]//tr[7]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//tr[7]/td[2]")));
+        assertEquals("Ecuadorian", driver.findElement(By.xpath("//section[@id='details']/article[2]//tr[7]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//tr[8]/td[1]")));
+        assertEquals("More", driver.findElement(By.xpath("//section[@id='details']/article[2]//tr[8]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//tr[8]/td[2]")));
+        assertEquals("CCNA Routing and Switching", driver.findElement(By.xpath("//section[@id='details']/article[2]//tr[8]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//tr[9]/td[1]")));
+        assertEquals("Thesis", driver.findElement(By.xpath("//section[@id='details']/article[2]//tr[9]/td[1]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//tr[9]/td[2]")));
+        assertEquals("Optimización del algoritmo de encriptación asimétrica", driver.findElement(By.xpath("//section[@id='details']/article[2]//tr[9]/td[2]")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='details']/article[2]//tr[10]/td[2]")));
+        assertEquals("RSA para la mitigación de ataques de seguridad de redes", driver.findElement(By.xpath("//section[@id='details']/article[2]//tr[10]/td[2]")).getText());
     }
 
 
+    /*  Test parte 1 education-fila 1-columna1*/
 
+    @Test
+    public void testEducationKatty() throws Exception {
+        driver.get(baseUrl + "katty.html");
+        assertTrue(isElementPresent(By.xpath("//section[@id='educa1']/article[1]//h2")));
+        assertEquals("EDUCATION", driver.findElement(By.xpath("//section[@id='educa1']/article[1]//h2")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='educa2']/article[1]//img")));
+        assertEquals(baseUrl+"images/education.png", driver.findElement(By.xpath("//section[@id='educa2']/article[1]//img")).getAttribute("src"));
+    }
+
+    /*  Test parte 1 education-numero de elementos*/
+
+    @Test
+    public void testEduca() throws Exception {
+        driver.get(baseUrl + "katty.html");
+        assertEquals(3, driver.findElements(By.xpath("//div[@id='educa']//section")).size());
+    }
+
+    /*  Test parte 1 education-tres elementos columna1-fila1*/
+
+    @Test
+    public void testEducation2Katty() throws Exception {
+        driver.get(baseUrl+ "katty.html");
+        assertTrue(isElementPresent(By.xpath("//section[@id='educa1']/article[2]//h3")));
+        assertEquals("University", driver.findElement(By.xpath("//section[@id='educa1']/article[2]//h3")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='educa1']/article[2]//h4")));
+        assertEquals("Electronic Network and Comunication Data Engineering • 2009-2015", driver.findElement(By.xpath("//section[@id='educa1']/article[2]//h4")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='educa1']/article[2]//img")));
+        assertEquals(baseUrl+"images/espe.jpg", driver.findElement(By.xpath("//section[@id='educa1']/article[2]//img")).getAttribute("src"));
+        assertTrue(driver.findElement(By.xpath("//section[@id='educa1']/article[2]//a")).getAttribute("href").matches("^http://www\\.espe\\.edu\\.ec/portal/portal/main\\.do[\\s\\S]sectionCode=118$"));
+        driver.findElement(By.xpath("//section[@id='educa1']/article[2]//a")).click();
+        assertEquals("ESPE Home", driver.getTitle());
+        driver.navigate().back();
+        assertTrue(isElementPresent(By.xpath("//section[@id='educa2']/article[2]//h3")));
+        assertEquals("College", driver.findElement(By.xpath("//section[@id='educa2']/article[2]//h3")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='educa2']/article[2]//h4")));
+        assertEquals("Colegio Municipal Experimental Sebastian de Benalcázar • 2003-2009", driver.findElement(By.xpath("//section[@id='educa2']/article[2]//h4")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='educa2']/article[2]//img")));
+        assertEquals(baseUrl+"images/benalcazar.jpg", driver.findElement(By.xpath("//section[@id='educa2']/article[2]//img")).getAttribute("src"));
+        assertEquals("http://www.educacion.quito.gob.ec/unidades/sebastiandebenalcazar/", driver.findElement(By.xpath("//section[@id='educa2']/article[2]//a")).getAttribute("href"));
+        driver.findElement(By.xpath("//section[@id='educa2']/article[2]//a")).click();
+        assertEquals("Inicio - Unidad Educativa Municipal Sebastián de Benalcázar", driver.getTitle());
+        driver.navigate().back();
+        assertTrue(isElementPresent(By.xpath("//section[@id='educa3']/article[2]//h3")));
+        assertEquals("School", driver.findElement(By.xpath("//section[@id='educa3']/article[2]//h3")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='educa3']/article[2]//h4")));
+        assertEquals("Colegio Bilingue Franz Schubert • 1996-2003", driver.findElement(By.xpath("//section[@id='educa3']/article[2]//h4")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='educa3']/article[2]//img")));
+        assertEquals(baseUrl+"images/franz.jpg", driver.findElement(By.xpath("//section[@id='educa3']/article[2]//img")).getAttribute("src"));
+        assertEquals("http://franzschubertschool.com/", driver.findElement(By.xpath("//section[@id='educa3']/article[2]//a")).getAttribute("href"));
+        driver.findElement(By.xpath("//section[@id='educa3']/article[2]//a")).click();
+        assertEquals("http://franzschubertschool.com/", driver.getCurrentUrl());
+
+    }
+
+     /*  Test parte 2 work-fila2-columna1*/
+
+    @Test
+    public void testWorkKatty() throws Exception {
+        driver.get(baseUrl + "katty.html");
+        assertTrue(isElementPresent(By.xpath("//section[@id='work1']/article[1]//h2")));
+        assertEquals("WORK", driver.findElement(By.xpath("//section[@id='work1']/article[1]//h2")).getText());
+        // TODO: ingresar la imagen work
+    }
+
+    /*  Test parte 2 work-numero de elementos*/
+
+    @Test
+    public void testWork() throws Exception {
+        driver.get(baseUrl + "katty.html");
+        assertEquals(2, driver.findElements(By.xpath("//div[@id='works']//section")).size());
+    }
+
+    /*  Test parte 2 work-dos elementos columna1-fila2*/
+
+    @Test
+    public void testWork2Katty() throws Exception {
+        driver.get(baseUrl + "katty.html");
+        assertTrue(isElementPresent(By.xpath("//section[@id='work1']/article[2]//h3")));
+        assertEquals("Universidad de las Fuerzas Armadas-ESPE", driver.findElement(By.xpath("//section[@id='work1']/article[2]//h3")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='work1']/article[2]//h4")));
+        assertEquals("Researcher of Cybersecurity • 02 de Marzo - 31 de Agosto del 2015", driver.findElement(By.xpath("//section[@id='work1']/article[2]//h4")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='work1']/article[2]//p")));
+        assertEquals("Researcher for the project \"TRAINING COMPUTING PLATFORMS, EXPERIMENTATION, MANAGEMENT AND MITIGATION ATTACKS CYBERSECURITY\"", driver.findElement(By.xpath("//section[@id='work1']/article[2]//p")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='work1']/article[2]//img")));
+        assertEquals(baseUrl+"images/icon1.png", driver.findElement(By.xpath("//section[@id='work1']/article[2]//img")).getAttribute("src"));
+        assertTrue(isElementPresent(By.xpath("//section[@id='work2']/article[2]//h3")));
+        assertEquals("Empresa IPLANET", driver.findElement(By.xpath("//section[@id='work2']/article[2]//h3")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='work2']/article[2]//h4")));
+        assertEquals("Technical Support Assistant • Enero - Mayo 2014", driver.findElement(By.xpath("//section[@id='work2']/article[2]//h4")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='work2']/article[2]//p")));
+        assertEquals("Support Assistant, managing antennas and routers, and reset monitoring equipment StationM5 Nano and IP audits", driver.findElement(By.xpath("//section[@id='work2']/article[2]//p")).getText());
+        assertTrue(isElementPresent(By.xpath("//section[@id='work2']/article[2]//img")));
+        assertEquals(baseUrl+"images/iplanet.png", driver.findElement(By.xpath("//section[@id='work2']/article[2]//img")).getAttribute("src"));
+    }
 
 
     @After
