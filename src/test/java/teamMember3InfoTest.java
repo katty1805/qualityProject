@@ -122,8 +122,7 @@ public class teamMember3InfoTest {
     }
 
     @Test
-    public void languagesTableTest() throws Exception
-    {
+    public void languagesTableTest() throws Exception {
         driver.get(baseUrl + "dani.html");
 
         WebElement table_element = driver.findElement(By.id("languagesId"));
@@ -132,16 +131,20 @@ public class teamMember3InfoTest {
         assertTrue(tr_collection.size() == 7); //NUMBER OF ROWS
 
         String[] tableColumns = {"Programmes and applications", "Objective-C", "Swift", "Java", "C / C ++", "C#", "SQL"};
+        testTable(tr_collection,tableColumns);
+    }
 
-        int row_num = 0;
-        for (WebElement trElement : tr_collection)  {
-            List<WebElement> td_collection=trElement.findElements(By.xpath("td"));
-            assertTrue(td_collection.size() == 3); //NUMBER OF COLUMNS
+    @Test
+    public void osTableTest() throws Exception {
+        driver.get(baseUrl + "dani.html");
 
-            WebElement tdElement1 = td_collection.get(0);
-            assertEquals(tdElement1.getText(),tableColumns[row_num]);
-            row_num++;
-        }
+        WebElement table_element = driver.findElement(By.id("osId"));
+        List<WebElement> tr_collection = table_element.findElements(By.xpath("id('osId')/tbody/tr"));
+
+        assertTrue(tr_collection.size() == 5); //NUMBER OF ROWS
+
+        String[] tableColumns = {"Operating systems", "Mac OS X", "Linux (Debian)", "iOS", "Android"};
+        testTable(tr_collection,tableColumns);
     }
 
     @After
@@ -150,6 +153,19 @@ public class teamMember3InfoTest {
         String verificationErrorString = verificationErrors.toString();
         if (!"".equals(verificationErrorString)) {
             fail(verificationErrorString);
+        }
+    }
+
+    private void testTable(List<WebElement> tr_collection, String[] tableColumns)
+    {
+        int row_num = 0;
+        for (WebElement trElement : tr_collection)  {
+            List<WebElement> td_collection=trElement.findElements(By.xpath("td"));
+            assertTrue(td_collection.size() == 3); //NUMBER OF COLUMNS
+
+            WebElement tdElement1 = td_collection.get(0);
+            assertEquals(tdElement1.getText(),tableColumns[row_num]);
+            row_num++;
         }
     }
 
